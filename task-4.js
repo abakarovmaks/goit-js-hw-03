@@ -1,27 +1,26 @@
-const formatString = function (string, maxLength = 40) {
-  const stringLength = string.split("");
-
-  if (stringLength.length > maxLength) {
-    stringLength.length = maxLength;
-    return stringLength.join("") + "...";
-  } else if (
-    (stringLength.length = maxLength || stringLength.length < maxLength)
-  ) {
-    return stringLength.join("");
+const countTotalSalary = function (employees) {
+  "use strict";
+  let sum = 0;
+  for (const salary of Object.values(employees)) {
+    sum += salary;
   }
+  return sum;
 };
 
-console.log(formatString("Curabitur ligula sapien, tincidunt non."));
-// вернется оригинальная строка
-
-console.log(formatString("Vestibulum facilisis, purus nec pulvinar iaculis."));
-// вернется форматированная строка
-
-console.log(formatString("Curabitur ligula sapien."));
-// вернется оригинальная строка
+console.log(countTotalSalary({})); // 0
 
 console.log(
-  formatString(
-    "Nunc sed turpis. Curabitur a felis in nunc fringilla tristique."
-  )
+  countTotalSalary({
+    mango: 100,
+    poly: 150,
+    alfred: 80,
+  })
+);
+
+console.log(
+  countTotalSalary({
+    kiwi: 200,
+    lux: 50,
+    chelsy: 150,
+  })
 );
